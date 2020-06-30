@@ -1,13 +1,35 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* index.css represents the base css
+ css here will be applied all through the wesite*/
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Piedra&family=Roboto:wght@300;400&display=swap');
+:root {
+	--primary: #0b132b;
+	--secondary: #1890ff;
+}
+body,
+p,
+a,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+li {
+	list-style-type: none;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+}
+h1 {
+	font-size: 3em;
+	font-weight: 500;
+}
+p {
+	font-size: 1.1em;
+}
+h2 {
+	font-size: 1.5em;
+	font-weight: 500;
 }

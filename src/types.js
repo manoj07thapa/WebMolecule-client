@@ -1,0 +1,10 @@
+export const USER_LOGGED_IN = 'USER_LOGGED_IN';
+export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
+export const USER_SIGNED_UP = 'USER_SIGNED_UP';
+export const QUERY_FECHED = 'QUERY_FECHED';
+export const QUERY_ADDED = 'QUERY_ADDED';
+export const USER_FETCHED = 'USER_FETCHED';
+export const BLOG_ADDED = 'BLOG_ADDED';
+export const BLOG_FETCHED = 'BLOG_FETCHED';
+export const COURSE_ADDED = 'COURSE_ADDED';
+export const COURSE_FETCHED = 'COURSE_FETCHED';

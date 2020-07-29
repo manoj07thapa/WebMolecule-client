@@ -10,16 +10,16 @@ function ContactPage(props) {
 	const submit = (data) => dispatch(addQuery(data)).then(() => props.history.push('/greetings'));
 
 	return (
-		<Row gutter={80} style={{ margin: 30 }}>
+		<Row style={{ marginTop: 50 }}>
 			<Col className="gutter-row" span={10}>
-				<div style={{ background: 'lightgrey', padding: '20px,0', color: 'white' }}>
+				<div style={{ padding: '20px,0' }}>
 					<h2>Contact Us</h2>
 					<p>Mob No:9863715907</p>
 					<p>Email: juvenial777@gmail.com</p>
 					<p>Address: Gtthaghar Bhaktapur</p>
 				</div>
 			</Col>
-			<Col className="gutter-row" span={14}>
+			<Col className="gutter-row" span={10}>
 				<FormikContact submit={submit} />
 			</Col>
 		</Row>

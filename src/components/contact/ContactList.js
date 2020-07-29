@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Table } from 'antd';
 import { fetchQuery } from '../../actions/query';
 
 function ContactList() {
+	const [ data, setData ] = useState([]);
+
 	const columns = [
 		{
 			title: 'Full Name',
@@ -42,12 +44,21 @@ function ContactList() {
 			key: 'query'
 		}
 	];
+
 	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchQuery());
-	}, []);
-	const data = useSelector((state) => state.query);
-	console.log(data);
+	/**we are not using useSelector() for the exact same reason as in courseList fetching */
+	useEffect(
+		() => {
+			dispatch(fetchQuery())
+				.then((res) => {
+					setData(res.query);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		},
+		[ dispatch ]
+	);
 
 	const result = data.map((item) => ({
 		key: item._id,

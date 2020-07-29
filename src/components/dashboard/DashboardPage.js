@@ -7,7 +7,7 @@ import Test1 from './Test1';
 import BlogList from '../blog/BlogList';
 import BlogPage from '../blog/BlogPage';
 import CoursePage from '../services/courses/CoursePage';
-import CourseList from '../services/courses/CourseList';
+import CourseList1 from '../services/courses/CourseList1';
 
 const { Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -44,7 +44,7 @@ const DashboardPage = () => {
 		},
 		{
 			path: `${url}/courselist`,
-			component: () => <CourseList />
+			component: () => <CourseList1 />
 		}
 	];
 

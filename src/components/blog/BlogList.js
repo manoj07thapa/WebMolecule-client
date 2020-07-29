@@ -9,9 +9,12 @@ const { Title } = Typography;
 function BlogList(props) {
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(fetchBlog());
-	}, []);
+	useEffect(
+		() => {
+			dispatch(fetchBlog());
+		},
+		[ dispatch ]
+	);
 
 	const blogs = useSelector((state) => state.blog);
 	console.log(blogs);

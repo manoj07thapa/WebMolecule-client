@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import * as Yup from 'yup';
-import { Button, Alert, Card, Input, Checkbox } from 'antd';
+import { Button, Alert, Row, Col, Input, Checkbox } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
 const initialValues = {
@@ -41,7 +41,7 @@ function FormikContact(props) {
 			validateOnBlur={false}
 		>
 			{({ errors, isSubmitting }) => (
-				<Card hoverable cover>
+				<div>
 					<h1>Contact Us</h1>
 					{errors.global && (
 						<Alert message="Something went wrong" description={errors.global} type="error" showIcon />
@@ -105,7 +105,7 @@ function FormikContact(props) {
 							</Button>
 						</div>
 					</Form>
-				</Card>
+				</div>
 			)}
 		</Formik>
 	);

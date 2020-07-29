@@ -3,15 +3,7 @@ import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import * as Yup from 'yup';
 import { Button, Alert, Card, Input, Row, Col } from 'antd';
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import FileUpload from '../../upload/FileUpload';
 const { TextArea } = Input;
-
-const initialValues = {
-	title: '',
-	subtitle: '',
-	description: '',
-	cirriculums: [ { cirrtitle: '', cirrdescriptions: '' } ]
-};
 
 const validationSchema = Yup.object({
 	title: Yup.string().required('Title is required !!'),
@@ -25,12 +17,22 @@ const validationSchema = Yup.object({
 	)
 });
 
-function FormikCourse(props) {
+function FormikCourse({ submit }) {
+	const initialValues = {
+		title: '',
+		subtitle: '',
+		courseImage: '',
+		description: '',
+		cirriculums: [ { cirrtitle: '', cirrdescriptions: '' } ]
+	};
+
 	const onSubmit = (values, actions) => {
-		props.submit(values).catch((err) => {
+		console.log(values);
+		submit(values).catch((err) => {
 			actions.setErrors(err.response.data.error);
 		});
 		actions.setSubmitting(false);
+		actions.resetForm();
 	};
 
 	return (
@@ -56,14 +58,14 @@ function FormikCourse(props) {
 										{(errorMsg) => <div className="error-message">{errorMsg}</div>}
 									</ErrorMessage>
 								</div>
-								<div>
+								<div style={{ marginBottom: 40 }}>
 									<label htmlFor="subtitle">Subtitle</label>
 									<Field type="text" id="subtitle" name="subtitle" as={Input} />
 									<ErrorMessage name="subtitle">
 										{(errorMsg) => <div className="error-message">{errorMsg}</div>}
 									</ErrorMessage>
 								</div>
-								{/* <FileUpload /> */}
+
 								<div>
 									<label htmlFor="description">Description</label>
 									<Field type="text" id="description" name="description" as={Input} />
@@ -111,6 +113,7 @@ function FormikCourse(props) {
 										}}
 									</FieldArray>
 								</div>
+
 								<div>
 									<Button type="primary" htmlType="submit" loading={isSubmitting}>
 										Submit
